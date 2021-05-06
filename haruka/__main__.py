@@ -21,11 +21,7 @@ from haruka.modules.translations.strings import tld, tld_help
 from haruka.modules.connection import connected
 
 PM_START = """Hello {}, my name is {}!
-
-I am Official Group Manager bot for CosmicSwap !
-You can join my group here: @cosmicswapEN !
-To the 🌖
-"""
+."""
 
 
 IMPORTED = {}
@@ -605,7 +601,7 @@ def process_update(self, update):
         return
 
     now = datetime.datetime.utcnow()
-    cnt = CHAT_CN.get(update.effective.chat_id)
+    cnt = CHATS_CNT.get(update.effective_chat.id, 0)
 
     t = CHATS_TIME.get(update.effective_chat.id, datetime.datetime(1970, 1, 1))
     if t and now > t + datetime.timedelta(0, 1):
